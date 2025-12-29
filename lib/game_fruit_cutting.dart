@@ -1,5 +1,6 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/widgets.dart';
 
 import 'main_router_game.dart';
@@ -24,6 +25,7 @@ class _GameFruitCuttingState extends State<GameFruitCutting> {
 
   @override
   void dispose() {
+    FlameAudio.bgm.stop();
     Flame.device.restoreFullscreen();
     Flame.device.setPortrait();
     super.dispose();
