@@ -60,6 +60,7 @@ class MainRouterGame extends FlameGame with KeyboardEvents {
 
   void startBgmMusic() {
     FlameAudio.bgm.initialize();
+    FlameAudio.updatePrefix('/Users/raysanjaya/development/flutter_package/game_fruit_cutting/assets/audio/');
     FlameAudio.bgm.play(AppSfx.musicBG, volume: 0.3);
   }
 
@@ -108,6 +109,8 @@ class MainRouterGame extends FlameGame with KeyboardEvents {
   @override
   void onLoad() async {
     super.onLoad();
+
+    images.prefix = 'packages/game_fruit_cutting/assets/images/';
 
     for (final fruit in fruits) {
       await images.load(fruit.image);

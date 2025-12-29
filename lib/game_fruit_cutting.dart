@@ -23,6 +23,13 @@ class _GameFruitCuttingState extends State<GameFruitCutting> {
   }
 
   @override
+  void dispose() {
+    Flame.device.restoreFullscreen();
+    Flame.device.setPortrait();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return WebTitleSwitcher(
       child: GameWidget(

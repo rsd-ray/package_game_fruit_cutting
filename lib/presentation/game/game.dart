@@ -319,6 +319,7 @@ class GamePage extends Component with DragCallbacks, HasGameReference<MainRouter
 
   void playRandomSliceSound() {
     String selectedSound = sliceSounds[random.nextInt(sliceSounds.length)];
+    FlameAudio.updatePrefix('/Users/raysanjaya/development/flutter_package/game_fruit_cutting/assets/audio/');
     FlameAudio.play(selectedSound, volume: 0.5);
   }
 
