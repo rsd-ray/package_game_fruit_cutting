@@ -17,6 +17,7 @@ dependencies:
   intl: ^0.20.2
   path_provider: ^2.1.5
   flame_audio: ^2.11.11
+  get_it: ^9.2.0
 
 dev_dependencies:
   flutter_test:

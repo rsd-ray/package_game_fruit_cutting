@@ -13,11 +13,14 @@ import '../../core/configs/assets/app_images.dart';
 import '../../core/configs/constants/app_router.dart';
 import '../../core/configs/theme/app_colors.dart';
 import '../../main_router_game.dart';
+import '../../navigator_action.dart';
+import '../../service_injection.dart';
 import 'widgets/game_mode_component.dart';
 import 'widgets/tutorial_fruit_component.dart';
 
 class HomePage extends Component with HasGameReference<MainRouterGame> {
   late final RoundedButton _button;
+  late final RoundedButton _buttonExit;
 
   late final SimpleCenterText _tutorialRuleLose1Component;
   late final SimpleCenterText _tutorialRuleLose2Component;
@@ -93,6 +96,17 @@ class HomePage extends Component with HasGameReference<MainRouterGame> {
           bgColor: AppColors.blue,
           borderColor: AppColors.white,
         ),
+        _buttonExit = RoundedButton(
+          text: 'Exit',
+          onPressed: () {
+            // game.router.pushNamed(AppRouter.gamePage);
+            // game.router.pop();
+            // SystemNavigator.pop();
+            injection<NavigatorAction>().execute();
+          },
+          bgColor: AppColors.blue,
+          borderColor: AppColors.white,
+        ),
         _tutorialRuleLose1Component = SimpleCenterText(
           text: 'Bomb explodes is lose,',
           textColor: AppColors.white,
@@ -126,7 +140,13 @@ class HomePage extends Component with HasGameReference<MainRouterGame> {
     super.onGameResize(size);
 
     // button in center of page
-    _button.position = size / 2;
+    // _button.position = size / 2;
+
+    final centerX = size.x / 2;
+    final centerY = size.y / 2;
+    final spacing = 40; // jarak antar tombol (bebas kamu atur)
+    _button.position = Vector2(centerX, centerY - spacing);
+    _buttonExit.position = Vector2(centerX, centerY + spacing);
 
     _tutorialRuleScore1Component.position =
         Vector2(game.size.x / 2, game.size.y - game.size.y / 3.9);
