@@ -4,6 +4,8 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/widgets.dart';
 
 import 'main_router_game.dart';
+import 'service_injection.dart';
+import 'set_score_action.dart';
 import 'web_title_switcher_stub.dart';
 
 class GameFruitCutting extends StatefulWidget {
@@ -37,7 +39,7 @@ class _GameFruitCuttingState extends State<GameFruitCutting> {
       child: GameWidget(
         game: MainRouterGame(
           setScore: (int score) {
-            print('=====================> fucking score : $score');
+            injection<SetScoreAction>().execute(score);
           }
         ),
       ),

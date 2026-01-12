@@ -193,7 +193,7 @@ class GameOverPage extends Component with TapCallbacks, HasGameReference<MainRou
     game.setToScore(game.getScore());
     _textScoreComponent.text = 'Score: ${game.getScore()}';
 
-    _buttonLeaderboard.position = Vector2(game.size.x / 2, game.size.y / 2 + 110);
+    // _buttonLeaderboard.position = Vector2(game.size.x / 2, game.size.y / 2 + 110);
 
     _textNewGameComponent.position = game.isDesktop
         ? Vector2(game.size.x - 15, game.size.y - 15)
