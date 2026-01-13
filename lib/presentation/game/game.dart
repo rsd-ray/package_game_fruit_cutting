@@ -308,7 +308,7 @@ class GamePage extends Component with DragCallbacks, HasGameReference<MainRouter
     mistakeCount++; // Increase mistake count by one
     _mistakeTextComponent?.text = 'Mistake: $mistakeCount'; // Update mistake display
     // Check if the player has made too many mistakes
-    if (mistakeCount >= 10) {
+    if (mistakeCount >= 4) {
       gameOver(); // End the game if mistakes exceed limit
     }
   }
